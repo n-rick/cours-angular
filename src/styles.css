@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Shippori+Antique&display=swap');
+
+*{
+    font-family: 'Gochi Hand', cursive;
+    font-family: 'Shippori Antique', sans-serif;
+}
+
+body{
+    padding: 10px;
+    margin: 20px;
+}
