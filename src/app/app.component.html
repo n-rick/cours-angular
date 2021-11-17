@@ -5,6 +5,9 @@
   </h1>
 </div>
 
+<app-menu></app-menu>
+<router-outlet></router-outlet>
+
 <p>nom du stagiaire : {{ stagiaire.nom}}, prénom du stagiaire: {{ stagiaire.prenom ?? "prénom inconnue"}}</p>
 <!-- Affichage d'un objet-->
 <p> Affichage de la méthode direBonjour() : {{ direBonjour() }}</p> <!-- Affichage d'un méthode-->
