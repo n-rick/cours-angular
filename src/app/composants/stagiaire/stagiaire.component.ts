@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-stagiaire',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StagiaireComponent implements OnInit {
 
-  constructor() { }
+  nom: string = "";
+  prenom: string = "";
+  // injection de dépendance :
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(
+      (resp) => {
+        this.nom = resp.get('nom') ?? "";
+        this.prenom = resp.get('prenom') ?? "";
+      }
+    )
   }
 
 }
