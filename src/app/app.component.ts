@@ -7,7 +7,13 @@ import { Stagiaire } from './classes/stagiaire';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  
   title = 'cours-angular';
+
+  nom= 'messi';
+  prenom='Lionel';
+  lien='/stagiaire/messi/lionel';
+
   stagiaire: Stagiaire = new Stagiaire(100, "Wick", "John");
   stagiaires: Array<Stagiaire> = [
     new Stagiaire(100, 'Wick', 'John'),

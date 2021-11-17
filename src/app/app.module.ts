@@ -7,6 +7,10 @@ import { ObservableComponent } from './composants/observable/observable.componen
 import { AdresseComponent } from './composants/adresse/adresse.component';
 import { StagiaireComponent } from './composants/stagiaire/stagiaire.component';
 import { MenuComponent } from './composants/menu/menu.component';
+import { TableauComponent } from './composants/tableau/tableau.component';
+import { ErrorComponent } from './composants/error/error.component';
+import { HomeComponent } from './composants/home/home.component';
+import { CalculComponent } from './composants/calcul/calcul.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +18,11 @@ import { MenuComponent } from './composants/menu/menu.component';
     ObservableComponent,
     AdresseComponent,
     StagiaireComponent,
-    MenuComponent
+    MenuComponent,
+    TableauComponent,
+    ErrorComponent,
+    HomeComponent,
+    CalculComponent
   ],
   imports: [
     BrowserModule,
