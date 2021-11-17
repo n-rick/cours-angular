@@ -5,4 +5,8 @@ h2{
 }
 span{
     color: tomato;
+    text-transform: capitalize;
+}
+strong{
+    text-transform: uppercase;
 }

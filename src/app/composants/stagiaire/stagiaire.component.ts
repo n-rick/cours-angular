@@ -13,6 +13,7 @@ export class StagiaireComponent implements OnInit {
   // injection de dépendance :
   constructor(private route: ActivatedRoute) { }
 
+  // version asynchrone
   ngOnInit(): void {
     this.route.paramMap.subscribe(
       (resp) => {
@@ -21,5 +22,11 @@ export class StagiaireComponent implements OnInit {
       }
     )
   }
+
+  // version synchrone
+  // ngOnInit(): void {
+  //   this.nom = this.route.snapshot.params['nom'];
+  //   this.prenom = this.route.snapshot.params['prenom'];
+  // }
 
 }
