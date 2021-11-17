@@ -1,5 +1,14 @@
 <ul>
-    <li><a href=''> Accueil </a></li>
-    <li><a href='stagiaire'> Stagiaire </a></li>
-    <li><a href='adresse'> Adresse </a></li>
+    <li routerLinkActive=active [routerLinkActiveOptions]="{ exact: true }">
+        <a routerLink='/'> Accueil </a>
+    </li>
+    <li routerLinkActive=active [routerLinkActiveOptions]="{ exact: true }">
+        <a routerLink='/stagiaire'> Stagiaire </a>
+    </li>
+    <li routerLinkActive=active [routerLinkActiveOptions]="{ exact: true }">
+        <a routerLink='/adresse'> Adresse </a>
+    </li>
+    <li routerLinkActive=active [routerLinkActiveOptions]="{ exact: true }">
+        <a routerLink='/observable'> Observable </a>
+    </li>
 </ul>

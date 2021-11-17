@@ -1,0 +1,26 @@
+ul{
+    list-style-type: none;
+    text-align: center;
+}
+li{
+    display: inline-block;
+    padding: 5px;
+    margin: 2px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover{
+    color:tomato;
+}
+
+.active {
+    font-weight: bold;
+}
+
+
+
+    
