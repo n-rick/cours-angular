@@ -10,3 +10,25 @@ body{
     padding: 10px;
     margin: 20px;
 }
+
+h2{
+    text-align: center;
+    text-transform: uppercase;
+    color: red;
+}
+span{
+    color: tomato;
+    text-transform: capitalize;
+}
+strong{
+    text-transform: uppercase;
+}
+ul{
+    list-style-type: none;
+}
+
+.impossible{
+    color: red;
+    font-weight: bold;
+    text-transform: uppercase;
+}
