@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-tableau',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableauComponent implements OnInit {
   numbers = [2, 3, 8, 1];
-  constructor() { }
+  indice: number = 0;
+  pagePrecedent = '';
+  pageSuivante = "";
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(
+      (resp) => {
+        this.indice = Number(resp.get('indice') ?? 0);
+        if(this.numbers.length && this.indice > 0){
+          this.pagePrecedent = `/tableau/${this.indice-1}`;
+        }
+        if(this.numbers.length && this.indice < 3){
+          this.pageSuivante = `/tableau/${this.indice+1}`;
+        }else{
+          this.pageSuivante = `/tableau/0`;
+          this.pagePrecedent = `/tableau/0`;
+        }
+      }
+    )
   }
-
 }
