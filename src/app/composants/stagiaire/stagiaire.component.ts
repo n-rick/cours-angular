@@ -17,7 +17,7 @@ export class StagiaireComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(
       (resp) => {
-        this.nom = resp.get('nom') ?? "";
+        this.nom = resp.get('nom') ?? "Inconnu";
         this.prenom = resp.get('prenom') ?? "";
       }
     )
