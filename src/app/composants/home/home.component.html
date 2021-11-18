@@ -1,195 +1,202 @@
 <h2>Accueil</h2>
-<a [routerLink]="lien">Page de lionel Messi</a>
-<br />
-<a [routerLink]="['stagiaire', nom, prenom]">Page de lionel Messi</a>
-<br/>
-<a [routerLink]="['adresse']" [queryParams]="{ville: 'Marseille',codePostal: '13100', rue:'paradis'}">Voulez-vous savoir où habite Lionel Messi ?</a>
 
-<p>nom du stagiaire : {{ stagiaire.nom}}, prénom du stagiaire: {{ stagiaire.prenom ?? "prénom inconnue"}}</p>
-<!-- Affichage d'un objet-->
-<p> Affichage de la méthode direBonjour() : {{ direBonjour() }}</p> <!-- Affichage d'un méthode-->
-<ul>
-  <!-- Affichage d'un tableau-->
-  <h3 [ngClass]="'h3-in-brown'">Affichage du Tableau tab[]</h3>
-  <li>{{ tab[0] }}</li>
-  <li>{{ tab[1] }}</li>
-</ul>
+      <p>{{'bonjour' | getChar:1}}</p>
 
-<!-- Liaison unidirectionnel ou ONE WAY BINDING -->
-<h3 [ngClass]="'h3-in-brown'">Affichage du titre par interpolation : {{title}}</h3> <!-- Affichage par interpolation ts vers html -->
-<p>Affichage du titre par interpolation : {{title}}</p> <!-- Affichage par interpolation ts vers html -->
-<h3 [ngClass]="'h3-in-brown'">Affichage du Titre par Proprety Binding : </h3>
-<p>Affichage du Titre par Proprety Binding : </p>
-<p [textContent]="title"></p> <!-- afifichage par Property binding tc vers html -->
-<button (click)="displayBonjour()">Cliquer</button> <!-- Event binding html vers ts -->
+      <a [routerLink]="lien">Page de lionel Messi</a>
+      <br />
+      <a [routerLink]="['cours/stagiaire', nom, prenom]">Page de lionel Messi</a>
+      <br />
+      <a [routerLink]="['cours/adresse']"
+        [queryParams]="{ville: 'Marseille',codePostal: '13100', rue:'paradis'}">Voulez-vous savoir où habite Lionel
+        Messi ?</a>
 
-<!-- TWO WAY BINDING [( )]  /!\ PENSER A IMPORTER LE MODULE-->
+      <p>nom du stagiaire : {{ stagiaire.nom}}, prénom du stagiaire: {{ stagiaire.prenom ?? "prénom inconnue"}}</p>
+      <!-- Affichage d'un objet-->
+      <p> Affichage de la méthode direBonjour() : {{ direBonjour() }}</p> <!-- Affichage d'un méthode-->
+      <ul>
+        <!-- Affichage d'un tableau-->
+        <h3 [ngClass]="'h3-in-brown'">Affichage du Tableau tab[]</h3>
+        <li>{{ tab[0] }}</li>
+        <li>{{ tab[1] }}</li>
+      </ul>
 
-<!-- Traitement d'un tableau -->
-<h3 [ngClass]="'h3-in-brown'">Traitement d'un tableau:</h3>
-<ul>
-  <li *ngFor="let elt of tab; let i = index; let pair = even; let premier = first">
-    {{ pair }} : {{ i }} | {{ elt }} : {{ premier }}
-  </li>
-</ul>
+      <!-- Liaison unidirectionnel ou ONE WAY BINDING -->
+      <h3 [ngClass]="'h3-in-brown'">Affichage du titre par interpolation : {{title}}</h3>
+      <!-- Affichage par interpolation ts vers html -->
+      <p>Affichage du titre par interpolation : {{title}}</p> <!-- Affichage par interpolation ts vers html -->
+      <h3 [ngClass]="'h3-in-brown'">Affichage du Titre par Proprety Binding : </h3>
+      <p>Affichage du Titre par Proprety Binding : </p>
+      <p [textContent]="title"></p> <!-- afifichage par Property binding tc vers html -->
+      <button (click)="displayBonjour()" class="btn btn-outline-danger">Cliquer</button>
+      <!-- Event binding html vers ts -->
 
-<h3 [ngClass]="'h3-in-brown'">Liste des Stagiaires:</h3>
-<ul>
-  <li *ngFor="let elt of stagiaires">
-    {{elt.prenom}} - {{ elt.nom}}
-  </li>
-</ul>
-<!-- pour étirer sur un objet-->
-<h3 [ngClass]="'h3-in-brown'">Pour étirer sur un objet</h3>
-<ul>
-  <li *ngFor="let elt of stagiaire | keyvalue">
-    {{elt.key}} : {{ elt.value}}
-  </li>
-</ul>
-<!-- Condition -->
-<h3 [ngClass]="'h3-in-brown'">Condition ngIf</h3>
-<p *ngIf="tab[0] > 0"> {{ tab[0] }} est positif</p>
+      <!-- TWO WAY BINDING [( )]  /!\ PENSER A IMPORTER LE MODULE-->
 
-<p *ngIf="tab[1] > 0; else negatif"> {{ tab[0] }} est positif</p>
-<ng-template #negatif>
-  <p> {{ tab[1] }} est négatif</p>
-</ng-template>
-
-<h3 [ngClass]="'h3-in-brown'"> Utilisation du ngFor</h3>
-<ul>
-  <ng-container *ngFor="let elt of tab">
-    <li *ngIf="elt > 0; else negatif">
-      {{ elt}} est positif
-    </li>
-    <ng-template #negatif>
-      <li *ngIf="elt < 0; else nul">
-        {{ elt }} est négatif
-      </li>
-      <ng-template #nul>
-        <li>
-          {{ elt}} est null
+      <!-- Traitement d'un tableau -->
+      <h3 [ngClass]="'h3-in-brown'">Traitement d'un tableau:</h3>
+      <ul>
+        <li *ngFor="let elt of tab; let i = index; let pair = even; let premier = first">
+          {{ pair }} : {{ i }} | {{ elt }} : {{ premier }}
         </li>
-      </ng-template>
-    </ng-template>
-  </ng-container>
-</ul>
+      </ul>
 
-<ul>
-  <ng-container *ngFor="let elt of moyennes">
-    <li *ngIf=" elt >= 0 && elt < 10; else moyen">
-      La moyenne est de : {{ elt }} donc : échec
-    </li>
-    <ng-template #moyen>
-      <li *ngIf="elt < 13; else bien">
-        La moyenne est de : {{ elt }} donc : moyen
-      </li>
-      <ng-template #bien>
-        <li *ngIf="elt < 16; else tresBien">
-          La moyenne est de : {{ elt }} donc : bien
+      <h3 [ngClass]="'h3-in-brown'">Liste des Stagiaires:</h3>
+      <ul>
+        <li *ngFor="let elt of stagiaires">
+          {{elt.prenom}} - {{ elt.nom}}
         </li>
-      </ng-template>
-      <ng-template #tresBien>
-        <li>
-          La moyenne est de : {{ elt }} donc : très bien
+      </ul>
+      <!-- pour étirer sur un objet-->
+      <h3 [ngClass]="'h3-in-brown'">Pour étirer sur un objet</h3>
+      <ul>
+        <li *ngFor="let elt of stagiaire | keyvalue">
+          {{elt.key}} : {{ elt.value}}
         </li>
+      </ul>
+      <!-- Condition -->
+      <h3 [ngClass]="'h3-in-brown'">Condition ngIf</h3>
+      <p *ngIf="tab[0] > 0"> {{ tab[0] }} est positif</p>
+
+      <p *ngIf="tab[1] > 0; else negatif"> {{ tab[0] }} est positif</p>
+      <ng-template #negatif>
+        <p> {{ tab[1] }} est négatif</p>
       </ng-template>
-    </ng-template>
-  </ng-container>
-</ul>
 
-<h3 [ngClass]="'h3-in-brown'">Condition ngSwitch</h3>
-<ul>
-  <ng-container *ngFor="let elt of tab1">
-    <ng-container [ngSwitch]="elt">
-      <li *ngSwitchCase="1">
-        {{ elt }} = un
-      </li>
-      <li *ngSwitchCase="2">
-        {{ elt }} = deux
-      </li>
-      <li *ngSwitchCase="3">
-        {{ elt }} = trois
-      </li>
-      <li *ngSwitchDefault>
-        {{ elt }} : autre
-      </li>
-    </ng-container>
-  </ng-container>
-</ul>
+      <h3 [ngClass]="'h3-in-brown'"> Utilisation du ngFor</h3>
+      <ul>
+        <ng-container *ngFor="let elt of tab">
+          <li *ngIf="elt > 0; else negatif">
+            {{ elt}} est positif
+          </li>
+          <ng-template #negatif>
+            <li *ngIf="elt < 0; else nul">
+              {{ elt }} est négatif
+            </li>
+            <ng-template #nul>
+              <li>
+                {{ elt}} est null
+              </li>
+            </ng-template>
+          </ng-template>
+        </ng-container>
+      </ul>
 
-<h3 [ngClass]="'h3-in-brown'">Condition ngSwitch en testant le booléen avec ngSwitch = true</h3>
-<ul>
-  <ng-container *ngFor="let elt of tab">
-    <ng-container [ngSwitch]="true">
-      <li *ngSwitchCase="elt < 0">
-        {{ elt }} = négatif
-      </li>
-      <li *ngSwitchCase="elt > 0">
-        {{ elt }} = positif
-      </li>
-      <li *ngSwitchCase="elt == 0">
-        {{ elt }} = null
-      </li>
-      <li *ngSwitchDefault>
-        {{ elt }} : autre
-      </li>
-    </ng-container>
-  </ng-container>
-</ul>
+      <ul>
+        <ng-container *ngFor="let elt of moyennes">
+          <li *ngIf=" elt >= 0 && elt < 10; else moyen">
+            La moyenne est de : {{ elt }} donc : échec
+          </li>
+          <ng-template #moyen>
+            <li *ngIf="elt < 13; else bien">
+              La moyenne est de : {{ elt }} donc : moyen
+            </li>
+            <ng-template #bien>
+              <li *ngIf="elt < 16; else tresBien">
+                La moyenne est de : {{ elt }} donc : bien
+              </li>
+            </ng-template>
+            <ng-template #tresBien>
+              <li>
+                La moyenne est de : {{ elt }} donc : très bien
+              </li>
+            </ng-template>
+          </ng-template>
+        </ng-container>
+      </ul>
 
-<ul>
-  <ng-container *ngFor="let elt of moyennes">
-    <ng-container [ngSwitch]="true">
-      <li *ngSwitchCase="elt >= 0 && elt < 10">
-        {{ elt }} : échec
-      </li>
-      <li *ngSwitchCase="elt < 13">
-        {{ elt }} : moyen
-      </li>
-      <li *ngSwitchCase="elt < 16">
-        {{ elt }} : bien
-      </li>
-      <li *ngSwitchDefault>
-        {{ elt }} : très bien
-      </li>
-    </ng-container>
-  </ng-container>
-</ul>
+      <h3 [ngClass]="'h3-in-brown'">Condition ngSwitch</h3>
+      <ul>
+        <ng-container *ngFor="let elt of tab1">
+          <ng-container [ngSwitch]="elt">
+            <li *ngSwitchCase="1">
+              {{ elt }} = un
+            </li>
+            <li *ngSwitchCase="2">
+              {{ elt }} = deux
+            </li>
+            <li *ngSwitchCase="3">
+              {{ elt }} = trois
+            </li>
+            <li *ngSwitchDefault>
+              {{ elt }} : autre
+            </li>
+          </ng-container>
+        </ng-container>
+      </ul>
 
-<ul>
-  <ng-container *ngFor="let elt of stagiaires">
-    <ng-container [ngSwitch]="true">
-      <li *ngSwitchCase="elt.prenom ==='John'">
-        {{ elt.prenom }} {{elt.nom}} : the best
-      </li>
-      <li *ngSwitchCase="elt.prenom ==='Bob'">
-        {{ elt.prenom }} {{elt.nom}} : Hello World
-      </li>
-      <li *ngSwitchDefault>
-        {{ elt.prenom }} {{elt.nom}} : In da place
-      </li>
-    </ng-container>
-  </ng-container>
-</ul>
+      <h3 [ngClass]="'h3-in-brown'">Condition ngSwitch en testant le booléen avec ngSwitch = true</h3>
+      <ul>
+        <ng-container *ngFor="let elt of tab">
+          <ng-container [ngSwitch]="true">
+            <li *ngSwitchCase="elt < 0">
+              {{ elt }} = négatif
+            </li>
+            <li *ngSwitchCase="elt > 0">
+              {{ elt }} = positif
+            </li>
+            <li *ngSwitchCase="elt == 0">
+              {{ elt }} = null
+            </li>
+            <li *ngSwitchDefault>
+              {{ elt }} : autre
+            </li>
+          </ng-container>
+        </ng-container>
+      </ul>
 
-<h3 [ngClass]="'h3-in-brown'">Faire des changement de couleur</h3>
+      <ul>
+        <ng-container *ngFor="let elt of moyennes">
+          <ng-container [ngSwitch]="true">
+            <li *ngSwitchCase="elt >= 0 && elt < 10">
+              {{ elt }} : échec
+            </li>
+            <li *ngSwitchCase="elt < 13">
+              {{ elt }} : moyen
+            </li>
+            <li *ngSwitchCase="elt < 16">
+              {{ elt }} : bien
+            </li>
+            <li *ngSwitchDefault>
+              {{ elt }} : très bien
+            </li>
+          </ng-container>
+        </ng-container>
+      </ul>
 
-<p [ngClass]="{'vert': true}">
-  {{ title }}
-</p>
+      <ul>
+        <ng-container *ngFor="let elt of stagiaires">
+          <ng-container [ngSwitch]="true">
+            <li *ngSwitchCase="elt.prenom ==='John'">
+              {{ elt.prenom }} {{elt.nom}} : the best
+            </li>
+            <li *ngSwitchCase="elt.prenom ==='Bob'">
+              {{ elt.prenom }} {{elt.nom}} : Hello World
+            </li>
+            <li *ngSwitchDefault>
+              {{ elt.prenom }} {{elt.nom}} : In da place
+            </li>
+          </ng-container>
+        </ng-container>
+      </ul>
 
-<ul>
-  <ng-container *ngFor="let elt of tab">
-    <li [ngClass]="elt%2 == 0 ? 'rouge' : 'bleu'">
-      {{ elt }}
-    </li>
-  </ng-container>
-</ul>
+      <h3 [ngClass]="'h3-in-brown'">Faire des changement de couleur</h3>
 
-<ul>
-  <ng-container *ngFor="let s of stagiaires, index as i; even as p">
-    <li [ngClass]=" p ? 'rouge' : 'bleu'">
-      {{ i }} : {{ s.prenom }} {{s.nom}}
-    </li>
-  </ng-container>
-</ul>
+      <p [ngClass]="{'vert': true}">
+        {{ title }}
+      </p>
+
+      <ul>
+        <ng-container *ngFor="let elt of tab">
+          <li [ngClass]="elt%2 == 0 ? 'rouge' : 'bleu'">
+            {{ elt }}
+          </li>
+        </ng-container>
+      </ul>
+
+      <ul>
+        <ng-container *ngFor="let s of stagiaires, index as i; even as p">
+          <li [ngClass]=" p ? 'rouge' : 'bleu'">
+            {{ i }} : {{ s.prenom }} {{s.nom}}
+          </li>
+        </ng-container>
+      </ul>

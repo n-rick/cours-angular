@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './composants/menu/menu.component';
 import { ErrorComponent } from './composants/error/error.component';
 import { HomeComponent } from './composants/home/home.component';
+import { GetCharPipe } from './pipes/get-char.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     ErrorComponent,
-    HomeComponent
+    HomeComponent,
+    GetCharPipe
   ],
   imports: [
     BrowserModule,

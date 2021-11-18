@@ -18,13 +18,13 @@ export class TableauComponent implements OnInit {
       (resp) => {
         this.indice = Number(resp.get('indice') ?? 0);
         if(this.numbers.length && this.indice > 0){
-          this.pagePrecedent = `/tableau/${this.indice-1}`;
+          this.pagePrecedent = `/exercice/tableau/${this.indice-1}`;
         }
         if(this.numbers.length && this.indice < 3){
-          this.pageSuivante = `/tableau/${this.indice+1}`;
+          this.pageSuivante = `/exercice/tableau/${this.indice+1}`;
         }else{
-          this.pageSuivante = `/tableau/0`;
-          this.pagePrecedent = `/tableau/0`;
+          this.pageSuivante = `/exercice/tableau/0`;
+          this.pagePrecedent = `/exercice/tableau/0`;
         }
       }
     )

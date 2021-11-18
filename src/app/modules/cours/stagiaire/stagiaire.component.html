@@ -1,2 +1,8 @@
 <h2>Stagiaire</h2>
-<p>Bonjour <span>{{ prenom }}</span> | <span><strong>{{ nom }}</strong></span></p>
+<p *ngIf="prenom != '' && nom != ''; else noInfo">
+    Bonjour <span>{{ prenom }}</span> | <span><strong>{{ nom }}</strong></span>
+</p>
+<ng-template #noInfo>
+    <p>Bonjour <span>INCONNU !</span> </p>
+    <p ngClass="impossible">Veuillez saisir une recherche</p>
+</ng-template>

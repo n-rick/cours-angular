@@ -28,6 +28,6 @@ export class AdresseComponent implements OnInit {
   // }
 
   goToStagiaire(){
-    this.router.navigate(['/stagiaire', "messi", "lionel"]);
+    this.router.navigate(['/cours/stagiaire', "messi", "lionel"]);
   }
 }

@@ -5,16 +5,10 @@ import { HomeComponent } from './composants/home/home.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  // {path: 'adresse', component: AdresseComponent},
-  // {path: 'stagiaire', component: StagiaireComponent},
-  // {path: 'stagiaire/:nom/:prenom', component: StagiaireComponent},
-  // {path: 'observable', component: ObservableComponent},
   {
     path: 'cours',
     loadChildren: () => import('./modules/cours/cours.module').then(m => m.CoursModule)
   },
-  // {path: 'tableau/:indice', component: TableauComponent},
-  // {path: 'calcul/:op', component: CalculComponent},
   {
     path:'exercice',
     loadChildren: () => import('./modules/exercice/exercice.module').then(m => m.ExerciceModule)

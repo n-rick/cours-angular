@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
 
   nom= 'messi';
   prenom='Lionel';
-  lien='/stagiaire/messi/lionel';
+  lien='cours/stagiaire/messi/lionel';
 
   stagiaire: Stagiaire = new Stagiaire(100, "Wick", "John");
   stagiaires: Array<Stagiaire> = [
@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
 
   tab = [2, -4, 9, 0, 23, 17, -26];
   tab1 = [1, 2, 3, 0];
+  tab2 = [1,5,8,26,54,67,9]
   displayBonjour(){
     alert("bonjour");
   }

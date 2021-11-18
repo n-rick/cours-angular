@@ -7,7 +7,7 @@
 }
 
 body{
-    padding: 10px;
+    padding: 20px;
     margin: 20px;
 }
 
@@ -16,13 +16,16 @@ h2{
     text-transform: uppercase;
     color: red;
 }
+
 span{
     color: tomato;
     text-transform: capitalize;
 }
+
 strong{
     text-transform: uppercase;
 }
+
 ul{
     list-style-type: none;
 }

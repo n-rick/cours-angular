@@ -5,17 +5,23 @@ import { CoursRoutingModule } from './cours-routing.module';
 import { StagiaireComponent } from './stagiaire/stagiaire.component';
 import { AdresseComponent } from './adresse/adresse.component';
 import { ObservableComponent } from './observable/observable.component';
+import { FormulaireComponent } from './formulaire/formulaire.component';
+import { FormsModule } from '@angular/forms';
+import { FormComponent } from './form/form.component';
 
 
 @NgModule({
   declarations: [
     StagiaireComponent,
     AdresseComponent,
-    ObservableComponent
+    ObservableComponent,
+    FormulaireComponent,
+    FormComponent
   ],
   imports: [
     CommonModule,
-    CoursRoutingModule
+    CoursRoutingModule,
+    FormsModule
   ]
 })
 export class CoursModule { }
