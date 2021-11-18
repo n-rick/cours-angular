@@ -10,11 +10,13 @@
     </p>
 </ng-template> -->
 <h2>Calcul</h2>
-<h3>L'opérateur est : <span><strong> {{op}}</strong></span></h3>
-<p>les valeurs sont : <span>{{value1}}</span> et <span>{{ value2}}</span></p>
-<p *ngIf="divisionParZero == null; else error">
-    Le résultat attendu est : {{ value1}} {{ op }} {{ value2}} = {{ result}}
-</p>
-<ng-template #error>
-    <p [ngClass]="'impossible'"> {{ divisionParZero}} </p>
-</ng-template>
+<div ngClass="contenaire-center">
+    <h3>L'opérateur est : <span><strong> {{op}}</strong></span></h3>
+    <p>les valeurs sont : <span>{{value1}}</span> et <span>{{ value2}}</span></p>
+    <p *ngIf="divisionParZero == null; else error">
+        Le résultat attendu est : {{ value1}} {{ op }} {{ value2}} = {{ result}}
+    </p>
+    <ng-template #error>
+        <p [ngClass]="'impossible'"> {{ divisionParZero}} </p>
+    </ng-template>
+</div>
