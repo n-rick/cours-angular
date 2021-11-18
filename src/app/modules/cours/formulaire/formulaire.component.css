@@ -1,0 +1,14 @@
+.ng-invalid:not(form){
+    border-left: 5px solid red;
+    border-bottom: 1px solid red;
+}
+.ng-valid:not(form){
+    border-left: 5px solid green;
+    border-bottom: 1px solid green;
+}
+
+span{
+    color: tomato;
+    text-transform:lowercase;
+}
+    

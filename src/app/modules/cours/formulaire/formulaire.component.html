@@ -1,0 +1,39 @@
+<h2>Formulaire</h2>
+<div class="container-fluid">
+    <form class="mb-3" #monForm=ngForm>
+        <div class="mx-auto col-6 mb-3">
+            <label for="id" class="visually-hidden">Numéros</label>
+            <input type="number" name="id" id="id" [(ngModel)]="personne.id" class="form-control"
+                placeholder="votre identifiant">
+        </div>
+        <div class="mx-auto col-6 mb-3">
+            <label for="nom" class="visually-hidden">Nom</label>
+            <input type="text" name="nom" id="nom" [(ngModel)]="personne.nom" class="form-control"
+                placeholder="votre nom" required #nom=ngModel>
+                <span [hidden]="nom.valid || nom.pristine">
+                    Le nom est obligatoire (minimum un caractère)
+                </span>
+        </div>
+        <div class="mx-auto col-6 mb-3">
+            <label for="prenom" class="visually-hidden">Prénom</label>
+            <input type="text" name="prenom" id="prenom" [(ngModel)]="personne.prenom" class="form-control"
+                placeholder="votre nom" required #prenom=ngModel>
+                <span [hidden]="prenom.valid || prenom.pristine">
+                    Le prénom est obligatoire (minimum un caractère)
+                </span>
+        </div>
+        <div class="mx-auto col-6 mb-3">
+            <button (click)="ajouterPersonne()" class="btn btn-success" [disabled]=!monForm.valid>
+                Ajouter
+            </button>
+        </div>
+    </form>
+    <div>
+        <ul>
+            <li *ngFor="let p of personnes">
+                Numéros : {{ p.id }} | Nom : {{ p.nom }} | Prénom : {{ p.prenom }}        
+            </li>
+        </ul>
+
+    </div>
+</div>
