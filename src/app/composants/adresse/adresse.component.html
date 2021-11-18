@@ -1,8 +1,23 @@
 <h2>Adresse</h2>
 <ul>
-    <li>Rue :<span>{{ rue }}</span></li>
-    <li>Ville: <strong><span>{{ ville }}</span></strong></li>
-    <li>Code Postal : <span>{{ codePostal}}</span></li>
+    <li *ngIf="rue == ''; else showRue" [ngClass]="'show-in-red'">
+        RUE : Veuillez saisir une rue !
+    </li>
+    <ng-template #showRue>
+        <li>Rue :<span>{{ rue }}</span></li>
+    </ng-template>
+    <li *ngIf="ville == ''; else showVille" [ngClass]="'show-in-red'">
+        VILLE : Veuillez saisir une ville !
+    </li>
+    <ng-template #showVille>
+        <li><strong><span>{{ ville }}</span></strong></li>
+    </ng-template>
+    <li *ngIf="codePostal == ''; else showCP" [ngClass]="'show-in-red'" >
+        CODE POSTAL : Veuillez saisir un code postal !
+    </li> 
+    <ng-template #showCP>
+        <li>Code Postal : <span>{{ codePostal}}</span></li>
+    </ng-template>
 </ul>
 
 <button (click)="goToStagiaire()">Se rendre sur la page du stagiaire</button>
