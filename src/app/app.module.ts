@@ -3,26 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ObservableComponent } from './composants/observable/observable.component';
-import { AdresseComponent } from './composants/adresse/adresse.component';
-import { StagiaireComponent } from './composants/stagiaire/stagiaire.component';
 import { MenuComponent } from './composants/menu/menu.component';
-import { TableauComponent } from './composants/tableau/tableau.component';
 import { ErrorComponent } from './composants/error/error.component';
 import { HomeComponent } from './composants/home/home.component';
-import { CalculComponent } from './composants/calcul/calcul.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ObservableComponent,
-    AdresseComponent,
-    StagiaireComponent,
     MenuComponent,
-    TableauComponent,
     ErrorComponent,
-    HomeComponent,
-    CalculComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
