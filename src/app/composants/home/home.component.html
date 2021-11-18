@@ -1,3 +1,4 @@
+<h2>Accueil</h2>
 <a [routerLink]="lien">Page de lionel Messi</a>
 <br />
 <a [routerLink]="['stagiaire', nom, prenom]">Page de lionel Messi</a>
@@ -9,13 +10,15 @@
 <p> Affichage de la méthode direBonjour() : {{ direBonjour() }}</p> <!-- Affichage d'un méthode-->
 <ul>
   <!-- Affichage d'un tableau-->
-  <li>Affichage du Tableau tab[]</li>
+  <h3 [ngClass]="'h3-in-brown'">Affichage du Tableau tab[]</h3>
   <li>{{ tab[0] }}</li>
   <li>{{ tab[1] }}</li>
 </ul>
 
 <!-- Liaison unidirectionnel ou ONE WAY BINDING -->
+<h3 [ngClass]="'h3-in-brown'">Affichage du titre par interpolation : {{title}}</h3> <!-- Affichage par interpolation ts vers html -->
 <p>Affichage du titre par interpolation : {{title}}</p> <!-- Affichage par interpolation ts vers html -->
+<h3 [ngClass]="'h3-in-brown'">Affichage du Titre par Proprety Binding : </h3>
 <p>Affichage du Titre par Proprety Binding : </p>
 <p [textContent]="title"></p> <!-- afifichage par Property binding tc vers html -->
 <button (click)="displayBonjour()">Cliquer</button> <!-- Event binding html vers ts -->
@@ -23,28 +26,28 @@
 <!-- TWO WAY BINDING [( )]  /!\ PENSER A IMPORTER LE MODULE-->
 
 <!-- Traitement d'un tableau -->
-<p>Traitement d'un tableau:</p>
+<h3 [ngClass]="'h3-in-brown'">Traitement d'un tableau:</h3>
 <ul>
   <li *ngFor="let elt of tab; let i = index; let pair = even; let premier = first">
     {{ pair }} : {{ i }} | {{ elt }} : {{ premier }}
   </li>
 </ul>
 
-<p>Liste des Stagiaires:</p>
+<h3 [ngClass]="'h3-in-brown'">Liste des Stagiaires:</h3>
 <ul>
   <li *ngFor="let elt of stagiaires">
     {{elt.prenom}} - {{ elt.nom}}
   </li>
 </ul>
 <!-- pour étirer sur un objet-->
-<p>Pour étirer sur un objet</p>
+<h3 [ngClass]="'h3-in-brown'">Pour étirer sur un objet</h3>
 <ul>
   <li *ngFor="let elt of stagiaire | keyvalue">
     {{elt.key}} : {{ elt.value}}
   </li>
 </ul>
 <!-- Condition -->
-<p>Condition ngIf</p>
+<h3 [ngClass]="'h3-in-brown'">Condition ngIf</h3>
 <p *ngIf="tab[0] > 0"> {{ tab[0] }} est positif</p>
 
 <p *ngIf="tab[1] > 0; else negatif"> {{ tab[0] }} est positif</p>
@@ -52,6 +55,7 @@
   <p> {{ tab[1] }} est négatif</p>
 </ng-template>
 
+<h3 [ngClass]="'h3-in-brown'"> Utilisation du ngFor</h3>
 <ul>
   <ng-container *ngFor="let elt of tab">
     <li *ngIf="elt > 0; else negatif">
@@ -93,7 +97,7 @@
   </ng-container>
 </ul>
 
-<p>Condition ngSwitch</p>
+<h3 [ngClass]="'h3-in-brown'">Condition ngSwitch</h3>
 <ul>
   <ng-container *ngFor="let elt of tab1">
     <ng-container [ngSwitch]="elt">
@@ -113,7 +117,7 @@
   </ng-container>
 </ul>
 
-<p>Condition ngSwitch en testant le booléen avec ngSwitch = true</p>
+<h3 [ngClass]="'h3-in-brown'">Condition ngSwitch en testant le booléen avec ngSwitch = true</h3>
 <ul>
   <ng-container *ngFor="let elt of tab">
     <ng-container [ngSwitch]="true">
@@ -168,7 +172,7 @@
   </ng-container>
 </ul>
 
-<p>Faire des changement de couleur</p>
+<h3 [ngClass]="'h3-in-brown'">Faire des changement de couleur</h3>
 
 <p [ngClass]="{'vert': true}">
   {{ title }}
