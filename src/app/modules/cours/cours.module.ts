@@ -6,8 +6,11 @@ import { StagiaireComponent } from './stagiaire/stagiaire.component';
 import { AdresseComponent } from './adresse/adresse.component';
 import { ObservableComponent } from './observable/observable.component';
 import { FormulaireComponent } from './formulaire/formulaire.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormComponent } from './form/form.component';
+import { PersonneComponent } from './personne/personne.component';
+import { EditPersonneComponent } from './edit-personne/edit-personne.component';
+import { HttpClientModule } from '@angular/common/http'; 
 
 
 @NgModule({
@@ -16,12 +19,16 @@ import { FormComponent } from './form/form.component';
     AdresseComponent,
     ObservableComponent,
     FormulaireComponent,
-    FormComponent
+    FormComponent,
+    PersonneComponent,
+    EditPersonneComponent,
   ],
   imports: [
     CommonModule,
     CoursRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ]
 })
 export class CoursModule { }

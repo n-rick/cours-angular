@@ -1,0 +1,40 @@
+<h2>Gestion de Personne</h2>
+<h3 class="col-md-6 mx-auto">Ajouter une personne</h3>
+
+<form #monForm=ngForm class="col-md-6 mx-auto" (ngSubmit)="ajouterPersonne(monForm)">
+    <div class="row">
+        <div class="col-md-6">
+            <label for="nom">Nom</label>
+            <input type="text" name="nom" id="nom" [(ngModel)]="personne.nom" required #nom="ngModel"
+                class="form-control">
+            <span [hidden]="nom.valid || nom.pristine">
+                Le nom est obligatoire (minimum un caractère)
+            </span>
+        </div>
+        <div class="col-md-6">
+            <label for="prenom">Prénom</label>
+            <input type="text" name="prenom" id="prenom" [(ngModel)]="personne.prenom" required #prenom=ngModel
+                class="form-control">
+            <span [hidden]="prenom.valid || prenom.untouched">
+                Le prénom est obligatoire (minimum un caractère)
+            </span>
+        </div>
+        <div>
+            <button class="btn btn-success mt-3" [disabled]="!monForm.valid">
+                Ajouter
+            </button>
+        </div>
+    </div>
+</form>
+<h3>Liste</h3>
+<ul>
+    <li *ngFor="let p of personnes">
+        {{ p.prenom }} {{ p.nom }}
+        <button class=btn (click)="supprimerPersonne(p.id)">
+            <i style="color:red" class="fas fa-trash-alt"></i>
+        </button>
+        <a [routerLink]="['/cours/editPersonne', p.id]">
+            <i class="far fa-edit"></i>
+        </a>
+    </li>
+</ul>

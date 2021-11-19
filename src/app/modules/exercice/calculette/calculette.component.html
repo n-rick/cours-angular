@@ -1,0 +1,44 @@
+<h2 class="p-3">Caculette</h2>
+<div class="container">
+    <form [formGroup]="calculetteForm" class="mb-3">
+        <div class="row p-2">
+            <div class="col-md-3 mx-auto">
+                <label for="value1">Valeur 1 :</label>
+                <input type="number" name="value1" id="value1" formControlName="value1" placeholder="Entrez la première valeur" class="form-control">
+            </div>
+            <div class="col-md-3 mx-auto">
+                <label for="value1">Valeur 2 :</label>
+                <input type="number" name="value2" id="value2" formControlName="value2" placeholder="Entrez la deuxième valeur" class="form-control">
+            </div>
+        </div>
+        <div class="row text-center p-3 m-2">
+            <div class="col-md-3">
+                <button class="btn btn-success" (click)="compute('+')" [disabled]="calculetteForm.invalid">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-danger" (click)="compute('-')" [disabled]="calculetteForm.invalid">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-info" (click)="compute('*')" [disabled]="calculetteForm.invalid">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-warning" (click)="compute('/')" [disabled]="calculetteForm.invalid">
+                    <i class="fas fa-divide"></i>
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 col-md-offset-4 mx-auto">
+                <h3>
+                    Le résultat est : <span> {{ result }} </span>
+                </h3>
+            </div>
+        </div>
+    </form>
+</div>

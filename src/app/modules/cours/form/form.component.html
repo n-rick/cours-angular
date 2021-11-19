@@ -1,1 +1,28 @@
-<h2>Forms V2</h2>
+<h2>Forms V2 (formulaire réactif)</h2>
+
+<form [formGroup]="personneForm" class="col-md-6 mx-auto">
+    Nom : <input type="text" formControlName=nom class="form-control"><br />
+    Prénom : <input type="text" formControlName=prenom class="form-control"><br />
+
+    <div formGroupName="adresse">
+        Rue : <input type="text" formControlName=rue class="form-control"><br />
+        Code postal : <input type="text" formControlName=codePostal class="form-control"><br />
+        Ville : <input type="text" formControlName=ville class="form-control"><br />
+    </div>
+    <button (click)="ajouterPersonne()" [disabled]="personneForm.invalid">
+        Ajouter
+    </button>
+</form>
+
+<h3 class="mt-3">Liste des Personnes : </h3>
+<div>
+    <ul>
+        <li *ngFor="let p of personnes">
+            <h4>Identifiant de la personne</h4>
+            Prénom : {{ p.prenom }} | Nom : {{ p.nom }}
+            <h4>Adresse : </h4>
+            Rue : {{ p?.adresse?.rue }} | Ville : {{ p?.adresse?.ville }} | Code Postale : {{ p?.adresse?.codePostal }}       
+        </li>
+    </ul>
+</div>
+

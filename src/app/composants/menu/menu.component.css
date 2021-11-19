@@ -19,6 +19,8 @@ a:hover{
 
 .active {
     font-weight: bold;
+    text-transform: uppercase;
+    color: red;
 }
 
 

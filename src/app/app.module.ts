@@ -7,6 +7,7 @@ import { MenuComponent } from './composants/menu/menu.component';
 import { ErrorComponent } from './composants/error/error.component';
 import { HomeComponent } from './composants/home/home.component';
 import { GetCharPipe } from './pipes/get-char.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,11 +15,12 @@ import { GetCharPipe } from './pipes/get-char.pipe';
     MenuComponent,
     ErrorComponent,
     HomeComponent,
-    GetCharPipe
+    GetCharPipe,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

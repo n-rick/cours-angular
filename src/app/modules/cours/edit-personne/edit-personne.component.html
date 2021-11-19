@@ -1,0 +1,28 @@
+<h2>Gestion de Personne</h2>
+<h3 class="col-md-6 mx-auto">Modification d'un personne</h3>
+
+<form #monForm=ngForm class="col-md-6 mx-auto">
+    <div class="col-3">
+        <label for="id">Numéro</label>
+        <input type=number name="id" id="id" [(ngModel)]="personne.id" class="form-control" readonly>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="nom">Nom</label>
+            <input type="text" name="nom" id="nom" [(ngModel)]="personne.nom" required #nom="ngModel" class="form-control">
+            <span [hidden]="nom.valid || nom.pristine">
+                Le nom est obligatoire (minimum un caractère)
+            </span>
+        </div>
+        <div class="col-md-6">
+            <label for="prenom">Prenom</label>
+            <input type="text" name="prenom" id="prenom" [(ngModel)]="personne.prenom" required #prenom=ngModel class="form-control">
+            <span [hidden]="prenom.valid || prenom.pristine">
+                Le prénom est obligatoire (minimum un caractère)
+            </span>
+        </div>
+    </div>
+    <button class="btn btn-warning mt-3" (click)="enregistrer()" [disabled]="!monForm.valid">
+        Enregistrer
+    </button>
+</form>
