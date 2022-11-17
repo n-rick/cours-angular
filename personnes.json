@@ -1,0 +1,34 @@
+{
+  "personnes": [
+    {
+      "nom": "Wick",
+      "prenom": "John",
+      "id": 1
+    },
+    {
+      "nom": "green",
+      "prenom": "bob",
+      "id": 2
+    },
+    {
+      "nom": "Escobar",
+      "prenom": "Pablo",
+      "id": 3
+    },
+    {
+      "nom": "Mitroglous",
+      "prenom": "Kostas",
+      "id": 4
+    },
+    {
+      "nom": "Messi",
+      "prenom": "Lionel",
+      "id": 5
+    },
+    {
+      "prenom": "Kostas",
+      "nom": "Mitroglous",
+      "id": 6
+    }
+  ]
+}
